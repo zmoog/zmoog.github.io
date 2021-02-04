@@ -1,0 +1,9 @@
+baseURL = "https://zmoog.dev/"
+languageCode = "en-us"
+title = "zmoog"
+theme = "lanyon-hugo"
+
+[Params]
+  title = "zmoog"
+  tagline = "I procrastinate things"
+  author = "Maurizio Branca"
