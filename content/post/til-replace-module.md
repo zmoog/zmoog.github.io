@@ -44,9 +44,16 @@ require (
 )
 ```
 
+That's it! 🥳
+
+Now, when you recompile or run your code, the local copy will be used with all your local changes.
+
 
 ## Conclusion
 
-That's it!
+The `replace` directive is a nice little tool for this use case.
 
-Now, when you recompile or run your code, the local copy will be used with all your local changes.
+### Notice
+
+Don't ever commit these changes into your repo, they're meant to be transient and should be thrown away after use.
+
