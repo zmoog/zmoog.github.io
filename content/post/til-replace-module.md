@@ -10,7 +10,7 @@ You're using a great open source library in your project, and then, one day, you
 
 > "Oh, wouldn't be great if the author just added a tiny little log statement in that function?". 
 
-Yeah, it really would, thiw would allow me to trace the value of that variable o try a small change.
+Yeah, it really would, this would allow me to trace the value of that variable or try a small change.
 
 What can you do: fork the library? Nope. Don't do that.
 
