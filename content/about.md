@@ -16,7 +16,7 @@ I used to write Java code, but these days I’m mostly into Go and Python.
 
 I love AWS and serverless technologies! These are the best tools to build little fun things like (serverless) bots that scrape data from websites and post on Telegram, Slack or Twitter. 
 
-For example, evert morning I receive on Slack:
+For example, every morning I receive on Slack:
 
  - the latest deals from Apple’s refurbished products
  - this week’s grades of my two kids 
