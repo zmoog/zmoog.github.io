@@ -32,7 +32,7 @@ https://github.com/zmoog/refurbot
 
 Refurbot has been designed using the [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) principles. Totally overkill for a simple project like this, but sometimes it's useful to test or practice using simple context and then progressively move up to something more complex.
 
-![Refurbot Architecture](images/refurbot-architecture.png)
+![Refurbot Architecture](/images/refurbot-architecture.png)
 
 > high level architecture with adapters, message bus, etc
 
