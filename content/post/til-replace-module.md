@@ -32,7 +32,7 @@ require (
 )
 ```
 
-To replace the module `github.com/zmoog/bar` with a local copy located on your local disk, all you need to do is add the a new line with the [replace](https://golang.org/ref/mod#go-mod-file-replace) directive:
+To replace the module `github.com/zmoog/bar` with a local copy located on your local disk, all you need to do is add a new line with the [replace](https://golang.org/ref/mod#go-mod-file-replace) directive:
 
 ```
 module github.com/zmoog/foo
