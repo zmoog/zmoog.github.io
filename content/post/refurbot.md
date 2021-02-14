@@ -32,7 +32,8 @@ Refurbot is a simple serverless application written in Python. It has been desig
 
 ![Refurbot Architecture](/images/refurbot-architecture-high-level.png)
 
-Sometimes, we do such things ["just because we can"](https://www.youtube.com/watch?v=WlGIxof7w5I) and it's totally overkill, but in this case I think it's useful to test or practice using simple context and then progressively move up to something more complex (no I'm lying, I just read the two books [Architecture Patterns with Python](https://www.cosmicpython.com/book/) and [Clean Architectures in Python](http://www.pycabook.com) and I want to practice!)
+Sometimes, we do such things ["just because we can."](https://www.youtube.com/watch?v=WlGIxof7w5I) Still, in this case, I think it's useful to test or practice using simple context and then progressively move up to something more complex No, I'm lying, I just read the two books [Architecture Patterns with Python](https://www.cosmicpython.com/book/) and [Clean Architectures in Python](http://www.pycabook.com) and I want to practice!)
+
 
 ## Commands and Events
 
@@ -41,7 +42,6 @@ A more detailed overview of the Refurbot architecture.
 ![Refurbot Architecture](/images/refurbot-architecture-detail.png)
 
 ### Step 1 — Schedule it
-
 
 We are using the CloudWatch Event to fire up an event and trigger the lambda execution:
 
