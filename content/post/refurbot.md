@@ -81,7 +81,7 @@ In a real project the lambda should use the `event` data to build the command, b
 
 ### Step 3
 
-The MessageBus looks up the right handler and invoke it.
+The MessageBus looks up the right command handler and invoke it. The command handler contains the business logic to fullfil the command.
 
 
 ### Step 4 and 5
@@ -114,9 +114,11 @@ def search_deals(cmd: commands.SearchDeals,
         )]
 ```
 
+Each command handler exececution usually created one or more events.
+
 ### Step 6 and 7
 
-The MessageBus now handles the `DealsFound` event updating the status on Twitter:
+Now the MessageBus handles the `DealsFound` event, updating the status on Twitter:
 
 ```python
 def tweet_deals(event: events.DealsFound,
@@ -152,6 +154,15 @@ Refurbot is a trivial example and only requires [AWS Lambda](https://aws.amazon.
  * Access the Developer Portal, and create a new Project and application.
 
 ## Libraries
+
+Refurbot is using a few libraries:
+
+ * [tweepy](https://www.tweepy.org), to post status updates to Twitter
+ * [click](https://click.palletsprojects.com), to build a [command line version of che bot].
+ * [pytest](http://pytest.org) and [pytest-mock](https://pypi.org/project/pytest-mock/), for testing.
+ 
+But there is another one that is dear to me (just becouse I'm the author).
+
 ### Refurbished
 
 [Refurbished](https://github.com/zmoog/refurbished/) is a simple Python library (also [available on PyPI](https://pypi.org/project/refurbished/)) used to scrape the Apple Store and search for refurbished products.
@@ -180,11 +191,7 @@ Once installed, the [library](https://pypi.org/project/refurbished/) comes with 
 ... (more)
 ```
 
-### Tweepy
 
-The Twitter adapter is using the nice library [Tweepy](https://www.tweepy.org/).
-
-For Refurbot all we need is to [post a status update](https://docs.tweepy.org/en/latest/api.html#API.update_status), but it also handles the authentication gracefully.
 
 ## Serverless Framework
 
@@ -195,7 +202,7 @@ The Serverless framework is the heart and soul of this serverless project, and i
  - Deploy the code
 
 
-## The Serverless Advantage
+## Wrapping up
 
 Serverless is a good fit for bots: there aren't any process running idle waiting for events consuming resources (CPU, RAM, etc). The application is started when needed, and when it's done that's it.
 
