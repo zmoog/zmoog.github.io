@@ -16,8 +16,9 @@ Hell, yeah: a serverless bot! ⚡️
 
 Even better, bots are one kind of application that can be run efficiently within most cloud providers' free tiers.
 
-In this article, I'll share with you how I built Refurbot, a sample Twitter bot that every day tweets the best deal available in the refurbished products section of the Apple Store.
+In this article, I'll share with you how I built [Refurbot](https://github.com/zmoog/refurbot/), a Twitter bot that every day tweets the best deal available in the refurbished products section of the Apple Store.
 
+Refurbot source code is available at https://github.com/zmoog/refurbot/.
 
 ## Introducing Refurbot
 
