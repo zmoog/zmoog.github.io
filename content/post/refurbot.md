@@ -130,29 +130,6 @@ def tweet_deals(event: events.DealsFound,
         uow.twitter.update_status(text)
 ```
 
-
-
-## AWS and Twitter accounts
-
-Refurbot requires an AWS account and a Twitter account.
-
-### AWS
-
-You need a new AWS account to deploy your serverless bot. 
-
-#### Services
-
-Refurbot is a trivial example and only requires [AWS Lambda](https://aws.amazon.com/lambda/) (code execution) and CloudWatch (for scheduling). Fortunately the [AWS Free Tier](https://aws.amazon.com/free/) also includes others "always free" services [Amazon DynamoDB](https://aws.amazon.com/dynamodb/), [SNS](https://aws.amazon.com/sns/), [SQS](https://aws.amazon.com/sqs/) and [Step Functions](https://aws.amazon.com/step-functions/)) that can be used to build and run a hobby, or even a small scale, bot for free.
-
- * Visit https://aws.amazon.com and create a new AWS account
- * Create a IAM user and the credentials to use it to access AWS from the terminal
-
-### Twitter
-
- * Create a new Twitter account to use as a bot.
- * Apply for a developer account at https://developer.twitter.com/ using your new account.
- * Access the Developer Portal, and create a new Project and application.
-
 ## Libraries
 
 Refurbot is using a few libraries:
@@ -192,24 +169,8 @@ Once installed, the [library](https://pypi.org/project/refurbished/) comes with 
 ```
 
 
-
-## Serverless Framework
-
-The Serverless framework is the heart and soul of this serverless project, and it is used to:
-
- - Create the infrastructure
- - Build the lambda packages
- - Deploy the code
-
-
 ## Wrapping up
 
 Serverless is a good fit for bots: there aren't any process running idle waiting for events consuming resources (CPU, RAM, etc). The application is started when needed, and when it's done that's it.
 
 But you know: there ain't no such thing as a free lunch. Serverless solutions come with their own sets of trafe offs, like lambda functions cold start, potential "vendor lock in", and more.
-
-
-
-### The GitHub repository is wide open
-
-Refurbot is available as a ready to deploy project on GitHub, visit https://github.com/zmoog/refurbot to learn more.
