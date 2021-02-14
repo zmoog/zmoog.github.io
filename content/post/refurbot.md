@@ -16,9 +16,8 @@ Hell, yeah: a serverless bot! ⚡️
 
 Even better, bots are one kind of application that can be run efficiently within most cloud providers' free tiers.
 
-In this article, I'll share with you how I built [Refurbot](https://github.com/zmoog/refurbot/), a Twitter bot that every day tweets the best deal available in the refurbished products section of the Apple Store.
+In this article, I'll share with you how I built **Refurbot** (code is available at https://github.com/zmoog/refurbot/), a Twitter bot that every day tweets the best deal available in the refurbished products section of the Apple Store.
 
-Refurbot source code is available at https://github.com/zmoog/refurbot/.
 
 ## Introducing Refurbot
 
@@ -174,4 +173,4 @@ Once installed, the [library](https://pypi.org/project/refurbished/) comes with 
 
 Serverless is a good fit for bots: there aren't any process running idle waiting for events consuming resources (CPU, RAM, etc). The application is started when needed, and when it's done that's it.
 
-But you know: there ain't no such thing as a free lunch. Serverless solutions come with their own sets of trafe offs, like lambda functions cold start, potential "vendor lock in", and more.
+But you know: there ain't no such thing as a free lunch. Serverless solutions come with their own sets of trafe offs, like lambda functions [cold start](https://mikhail.io/serverless/coldstarts/aws/), potential "vendor lock in", and more.
