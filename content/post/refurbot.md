@@ -6,103 +6,33 @@ draft: true
 
 ## The Serverless Opportunity
 
-Writing bots is fun. Sometimes is even useful, but most of the time you write one because is really fun.
+Writing bots is fun. Sometimes it is even useful, but you write a bot most of the time because it is entertaining.
 
-Since these are fun-driven project, traditionally to keep them running you had to deal with the hassle on keep them running on your computer, some random Pis, or on an EC2 instance .
+But once you have written one, traditionally, you had to deal with the hassle of keeping them running indefinitely on your computer, on some random Pis, or on an EC2 instance.
 
-Are there other solutions to run a bot? Hell, yeah!
+Are there other solutions to run a bot? 
 
-A serverless bot! ⚡️
+Hell, yeah: a serverless bot! ⚡️
 
-Bots are one kind of application can be run easyly within the free tiers of most cloud providers.
+Even better, bots are one kind of application that can be run efficiently within most cloud providers' free tiers.
 
-In this article I'll share with you Refurbot, a simple twitter bot that every day tweets the best deal available in the refurbisted products section of the Apple Store.
+In this article, I'll share with you how I built Refurbot, a sample Twitter bot that every day tweets the best deal available in the refurbished products section of the Apple Store.
 
 
 ## Introducing Refurbot
 
-Every morning at 9 am (CET) Refurbot will wake up and have breakfast. Then, it will access the Apple Store to fetch the latest deals, find the best one (percentage wise) and tweet it to its huge audience (it's just me).
-![Refurbot Architecture](/images/refurbot-screenshots.png)
+Every morning at 9 am (CET), Refurbot will wake up and have breakfast. It will then access the Apple Store to fetch the latest deals, find the best one (percentage-wise), and tweet it to its vast audience (it's just me).
+
+![Refurbot Architecture](/images/refurbot-tweet-screenshot.png)
 
 
 ### Architecture
 
-Refurbot is a small Python serverless application, and has been designed using the [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) principles. 
-
-Totally overkill for a simple project like this, but sometimes it's useful to test or practice using simple context and then progressively move up to something more complex.
+Refurbot is a simple serverless application written in Python. It has been designed using the [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) principles, even if such a simple project should not really deserve this special attention.
 
 ![Refurbot Architecture](/images/refurbot-architecture-high-level.png)
 
-
-### The GitHub repository is wide open
-
-Refurbot is available as a ready to deploy project on GitHub, visit https://github.com/zmoog/refurbot to learn more.
-
-
-## AWS and Twitter accounts
-
-Refurbot requires an AWS account and a Twitter account.
-
-### AWS
-
-You need a new AWS account to deploy your serverless bot. 
-
-#### Services
-
-Refurbot is a trivial example and only requires [AWS Lambda](https://aws.amazon.com/lambda/) (code execution) and CloudWatch (for scheduling). Fortunately the [AWS Free Tier](https://aws.amazon.com/free/) also includes others "always free" services [Amazon DynamoDB](https://aws.amazon.com/dynamodb/), [SNS](https://aws.amazon.com/sns/), [SQS](https://aws.amazon.com/sqs/) and [Step Functions](https://aws.amazon.com/step-functions/)) that can be used to build and run a hobby, or even a small scale, bot for free.
-
- * Visit https://aws.amazon.com and create a new AWS account
- * Create a IAM user and the credentials to use it to access AWS from the terminal
-
-### Twitter
-
- * Create a new Twitter account to use as a bot.
- * Apply for a developer account at https://developer.twitter.com/ using your new account.
- * Access the Developer Portal, and create a new Project and application.
-
-## Libraries
-### Refurbished
-
-[Refurbished](https://github.com/zmoog/refurbished/) is a simple Python library (also [available on PyPI](https://pypi.org/project/refurbished/)) used to scrape the Apple Store and search for refurbished products.
-
-#### Library
-
-Refurbot is using it from the Adapter:
-```
->>> from refurbished import Store
->>> store = Store(country="us")
->>> ipads = store.get_ipads()
->>> 
->>> print(next(ipads).name)
-Refurbished iPad mini 4 Wi-Fi + Cellular 64GB - Silver
-```
-
-#### Use the CLI Luke!
-
-Once installed, the [library](https://pypi.org/project/refurbished/) comes with a nice [CLI](https://github.com/zmoog/refurbished/blob/master/cli/rfrb) you can use to search products from the terminal:
-
-```shell
-% rfrb it macs --min-saving=300
-
-1979 1679 300 (15%) MacBook Pro 13,3" ricondizionato con Intel Core i5 quad-core a 2,4GHz e display Retina - Argento
-
-... (more)
-```
-
-### Tweepy
-
-The Twitter adapter is using the nice library [Tweepy](https://www.tweepy.org/).
-
-For Refurbot all we need is to [post a status update](https://docs.tweepy.org/en/latest/api.html#API.update_status), but it also handles the authentication gracefully.
-
-## Serverless Framework
-
-The Serverless framework is the heart and soul of this serverless project, and it is used to:
-
- - Create the infrastructure
- - Build the lambda packages
- - Deploy the code
-
+Sometimes, we do such things ["just because we can"](https://www.youtube.com/watch?v=WlGIxof7w5I) and it's totally overkill, but in this case I think it's useful to test or practice using simple context and then progressively move up to something more complex (no I'm lying, I just read the two books [Architecture Patterns with Python](https://www.cosmicpython.com/book/) and [Clean Architectures in Python](http://www.pycabook.com) and I want to practice!)
 
 ## Commands and Events
 
@@ -110,9 +40,8 @@ A more detailed overview of the Refurbot architecture.
 
 ![Refurbot Architecture](/images/refurbot-architecture-detail.png)
 
-### Step 1
+### Step 1 — Schedule it
 
-#### Schedule
 
 We are using the CloudWatch Event to fire up an event and trigger the lambda execution:
 
@@ -200,8 +129,80 @@ def tweet_deals(event: events.DealsFound,
 ```
 
 
+
+## AWS and Twitter accounts
+
+Refurbot requires an AWS account and a Twitter account.
+
+### AWS
+
+You need a new AWS account to deploy your serverless bot. 
+
+#### Services
+
+Refurbot is a trivial example and only requires [AWS Lambda](https://aws.amazon.com/lambda/) (code execution) and CloudWatch (for scheduling). Fortunately the [AWS Free Tier](https://aws.amazon.com/free/) also includes others "always free" services [Amazon DynamoDB](https://aws.amazon.com/dynamodb/), [SNS](https://aws.amazon.com/sns/), [SQS](https://aws.amazon.com/sqs/) and [Step Functions](https://aws.amazon.com/step-functions/)) that can be used to build and run a hobby, or even a small scale, bot for free.
+
+ * Visit https://aws.amazon.com and create a new AWS account
+ * Create a IAM user and the credentials to use it to access AWS from the terminal
+
+### Twitter
+
+ * Create a new Twitter account to use as a bot.
+ * Apply for a developer account at https://developer.twitter.com/ using your new account.
+ * Access the Developer Portal, and create a new Project and application.
+
+## Libraries
+### Refurbished
+
+[Refurbished](https://github.com/zmoog/refurbished/) is a simple Python library (also [available on PyPI](https://pypi.org/project/refurbished/)) used to scrape the Apple Store and search for refurbished products.
+
+#### Library
+
+Refurbot is using it from the Adapter:
+```
+>>> from refurbished import Store
+>>> store = Store(country="us")
+>>> ipads = store.get_ipads()
+>>> 
+>>> print(next(ipads).name)
+Refurbished iPad mini 4 Wi-Fi + Cellular 64GB - Silver
+```
+
+#### Use the CLI Luke!
+
+Once installed, the [library](https://pypi.org/project/refurbished/) comes with a nice [CLI](https://github.com/zmoog/refurbished/blob/master/cli/rfrb) you can use to search products from the terminal:
+
+```shell
+% rfrb it macs --min-saving=300
+
+1979 1679 300 (15%) MacBook Pro 13,3" ricondizionato con Intel Core i5 quad-core a 2,4GHz e display Retina - Argento
+
+... (more)
+```
+
+### Tweepy
+
+The Twitter adapter is using the nice library [Tweepy](https://www.tweepy.org/).
+
+For Refurbot all we need is to [post a status update](https://docs.tweepy.org/en/latest/api.html#API.update_status), but it also handles the authentication gracefully.
+
+## Serverless Framework
+
+The Serverless framework is the heart and soul of this serverless project, and it is used to:
+
+ - Create the infrastructure
+ - Build the lambda packages
+ - Deploy the code
+
+
 ## The Serverless Advantage
 
-There aren't any process running idle waiting for events consuming resources (CPU, RAM, etc).
+Serverless is a good fit for bots: there aren't any process running idle waiting for events consuming resources (CPU, RAM, etc). The application is started when needed, and when it's done that's it.
 
-The application is started when needed, and when it's done that's it.
+But you know: there ain't no such thing as a free lunch. Serverless solutions come with their own sets of trafe offs, like lambda functions cold start, potential "vendor lock in", and more.
+
+
+
+### The GitHub repository is wide open
+
+Refurbot is available as a ready to deploy project on GitHub, visit https://github.com/zmoog/refurbot to learn more.
