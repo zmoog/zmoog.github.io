@@ -5,11 +5,11 @@ draft: true
 ---
 
 
- ## Automate all the things (reducing friction)
+ ## Automate all the things
  
-A story about friction and wasted time
+### A story about friction and wasted time.
 
-There are lot of big and small tasks we perform on our computers every day. Even when if they are simple, sometimes they carry a small amount of friction and always require some time. If you just do them once, there is no big deal. But, often we do them over and over agin, day in and day out, so their cumulative cost adds up into a not trivial amount.
+There are a lot of big and small tasks we perform on our computers every day. Even when if they are simple, sometimes they carry a small amount of friction and always require some time. If you just do them once, there is no big deal. But, often we do them over and over agin, day in and day out, so their cumulative cost adds up into a not trivial amount.
 
 ### 🤨 I'm pretty skeptical, please give something more tangible
 
@@ -259,3 +259,6 @@ And finally, when the Python script is done, this is what Alfred get back:
 [Is it worth the time](https://xkcd.com/1205/)? Yep! 
 
 Start small with something you need to "fix", like removing the friction of opening a site 1-3 times a day to check and information, generate am UUID on the fly or a password with just three keystrokes.
+
+## Music
+This post has been written listening to [Black Market](https://open.spotify.com/album/4COZn5okauxP5luXkwEPLd?si=6aSBpgopSNCpm8w9OgGy6w) by [Weather Report](https://open.spotify.com/artist/162DCkd8aDKwvjBb74Gu8b?si=6Ybw6IUlQbuLfxD1M6d2Tw).
