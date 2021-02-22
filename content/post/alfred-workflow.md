@@ -90,7 +90,7 @@ I created multiple workflow over a few months.
 
 ClasseViva is the electronic register used by a lot of schools here in Italy. 
 
-I build a small workflow to access the grades of my older kid during the week, so I can access the latest one with a very fre keystrokes.
+I build a small workflow using the library https://github.com/zmoog/classeviva-client to access the grades of my older kid during the week, so I can access the latest one with a very fre keystrokes.
 
 ![Alfred Workflow ClasseViva](/images/alfred-classeviva.gif)
 
