@@ -99,7 +99,9 @@ The alternative was open a new browser tab/window, log into the website, select 
 
  ## Example: Arduino CLI
 
-Sometime I want to see the details of the Arduino board connected to my laptop, list the installed core or search theough the libraties usimg the Arduino CLI.
+Sometime I want to see the details of the Arduino board connected to my laptop, list the installed core or search theough the libraties using the Arduino CLI.
+
+You can browse the final project visiting https://github.com/zmoog/alfred-arduino-cli/.
 
 I always have one or more open terminal, the zsh and reverse search ready, but sometimes all you need is to repeat over over a small subset of recurring actions.
 
