@@ -170,6 +170,26 @@ if __name__ == u"__main__":
         self.wf.send_feedback()
 ```
 
+and this is the resultin XML produced by Alfred-Workflow:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<items>
+    <item valid="no">
+        <title>0.16.0</title>
+        <subtitle>version</subtitle>
+    </item>
+    <item valid="no">
+        <title>c977a2382c2e7770b3eedc43e6a9d41f4a6c3483</title>
+        <subtitle>Commit</subtitle>
+    </item>
+    <item valid="no">
+        <title>alpha</title>
+        <subtitle>Status</subtitle>
+    </item>
+</items>%  
+```
+
 ### Invoke
 
 To keep the workflow as simple as possible I used the `--format json` available for most of the CLI commands. The result is returned as a nice JSON that can be easily parsed using the builtin `json` module.
