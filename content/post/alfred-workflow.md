@@ -7,35 +7,34 @@ draft: true
 
  ## Automate all the things
  
-### A story about friction and wasted time.
+### A story about friction and wasted time
 
-There are a lot of big and small tasks we perform on our computers every day. Even when if they are simple, sometimes they carry a small amount of friction and always require some time. If you just do them once, there is no big deal. But, often we do them over and over agin, day in and day out, so their cumulative cost adds up into a not trivial amount.
+There are a lot of big and small tasks we perform on our computers every single day. Even when they are simple, they sometimes carry a tiny amount of friction and always require time to complete. If you just do them once, there is no big deal. But, often, we do them over and over again, day in and day out, so their cumulative cost adds up into a not trivial amount.
 
-### 🤨 I'm pretty skeptical, please give something more tangible
+### 🤨 Hey, I'm pretty skeptical, please give me something more tangible
 
-I use an app called [TextExpander](https://textexpander.com/) every day to automatically *expand* abbreviation into snipplets of text I often use throughout the day.
+I use an app called [TextExpander](https://textexpander.com/) every day to automatically *expand* abbreviation into snippets of text I often use throughout the day.
 
 For example, when I type:
- * `;me` TextExpander replaces it with my full name "Maurizio Branca"
+ * `;me` TextExpander replaces it with my full name, "Maurizio Branca"
  * `;em` with my email address
  * `;pr` with my favourite [template for pull-requests](https://gist.github.com/zmoog/40e989c7e2a4450a4ee5d8b6d2833f04)
  * `;shrug` with `¯\_(ツ)_/¯`
 
-
 ![TextExpander Stats](../../static/images/textexpander-example.gif)
 
 
-### Numbers
+#### The Raw Numbers
 
-According to TextExpander, since January 1st I saved **47 minutes** just expanding abbreviations into text instead of typing it on my keyboard.
+According to TextExpander, in the last 40 days, I saved **47 minutes** just expanding abbreviations into the text instead of typing it on my keyboard.
 
 ![TextExpander Stats](../../static/images/textexpander-stats.png)
 
-It might or might not feel like a big deal, but actually I saved time AND removed friction from my workflow. Every time a expand a multiple words text or a template, I feel good.
+It might or might not feel like a big deal, but actually, I saved time AND removed friction from my workflow. And every time a expand a multiple words text or a template, I feel *really* good.
 
-### Numbers
+#### But TextExpander is not for developers!
 
-I started with TextExpander because it is kind enough to give me the numbers, but today I want to write about another tool that can save you time and remove friction: Alfred for macOS.
+I started with TextExpander because it is kind enough to give us the numbers, but today I want to write about another tool that can save you time and remove friction: Alfred, for macOS.
 
 
  ## What is Alfred?
@@ -44,68 +43,69 @@ I started with TextExpander because it is kind enough to give me the numbers, bu
 
 [Alfred](https://www.alfredapp.com) is a desktop [application launcher](https://en.wikipedia.org/wiki/Comparison_of_desktop_application_launchers) for macOS.
 
-There are a good number of launchers for macOS: [LaunchBar](https://www.google.it/search?q=launchbar), the venerable [Quicksilver](https://qsapp.com) and the built in [Spotlight](https://en.wikipedia.org/wiki/Spotlight_(software)) from Apple. But, Alfred is a special one.
+It's not the only one: there are a good number of launchers for macOS: [LaunchBar](https://www.google.it/search?q=launchbar), the venerable [Quicksilver](https://qsapp.com) and the built-in [Spotlight](https://en.wikipedia.org/wiki/Spotlight_(software)) from Apple. 
+
+Alfred is my favorite.
 
 ### Features
 
-You can use Alfred to launch applications, perform simple calculations, lookup locations using map services, search products on Amazon or anything else on Google more.
+You can use Alfred to launch applications, perform simple calculations, lookup locations using map services, search products on Amazon, or anything else on Google.
 
 ![Alfred example](../../static/images/alfred-example.gif)
 
-If you're willing to [pay £29.00](https://www.alfredapp.com/shop/) you'll get the real value out of it.
+The already mentioned features can be a convenient and useful tool, but the most powerful and impressive stuff comes out of the Powerpack if you have some development skills.
 
-The already metioned features can be a really handy and useful tool, but as developers, the real powerful and most interesting stuff comes out of the Powerpack.
-
+If you're willing to [pay £29.00](https://www.alfredapp.com/shop/), you'll get the real value out of it.
 
 ### 💰⚡️ The Powerpack
 
 Here's what you get if you purchase the [Alfred Powerpack](https://www.alfredapp.com/powerpack/).
 
- * **Clipboard history** — you can search and paste again up to three months of text copied in the pastboard (it's how macOS call the clipboard)
- * **Snipplets** — a basic TextExpander built in Alfred
+ * **Clipboard history** — you can search and paste again up to three months of text copied in the pasteboard (it's how macOS call the clipboard)
+ * **Snippets** — a basic TextExpander built-in Alfred
  * **Files**
- * **Contacts** — search end open your contacts, gread for lookup a phone number or an email addres in an instant
+ * **View Contacts** — search end open your contacts, great for lookup a phone number or an email address in an instant
  * **Workflows**
  * and more.
 
- Clipboard history and contacts are truly great, but Workflows are a real game changer.
+Clipboard history is a killer feature to me, but Workflows are a real game-changer.
 
 
  ## Workflows
 
-[Workflows](https://www.alfredapp.com/workflows/) are an extentions mechanism that allow third party developers to write their own additional feature that can be pluggein in Afred, triggered and executed from Alfred using a keyword.
+[Workflows](https://www.alfredapp.com/workflows/) are an extension mechanism that allows third-party developers to write their own additional feature that can be plugged in Alfred, triggered, and executed from Alfred typing a short keyword.
 
 ![Alfred Workflow Panel](../../static/images/alfred-workflow-panel.png)
 
-Workflows can be written in virtually any language that can write XML, the markup used to communicate between Alfred and the workflow (more on this later).
+Workflows can be written in virtually any language that can write XML, the default markup used to communicate between Alfred and the workflow (more on this later).
 
 Today I want to share how to write useful custom workflows using Python.
 
 
  ## Introducing Alfred-Workflows
 
-There is probably one framework for every major language out there, but the Python based [Alfred-Workflow](https://github.com/deanishe/alfred-workflow) from [deanishe](https://twitter.com/deanishe) is absolutely one of the best ones.
+There is probably one framework to build Alfred workflows for every popular language out there, but the Python-based [Alfred-Workflow](https://github.com/deanishe/alfred-workflow) from [deanishe](https://twitter.com/deanishe) absolutely stands out for its features and good documentation.
 
-I created multiple workflow to bot scratch an itch and solve practical problem, and it's been a real fun.
+Over the last few months, I created multiple workflows to scratch an itch and solve practical problems, and it's been delightful.
 
  ## Example: ClasseViva
 
 [ClasseViva](https://web.spaggiari.eu/sdf/app/default/cvv.php?vista=scheda_prodotto) is the electronic class register used by a lot of schools here in Italy. 
 
-I build a small workflow using the library https://github.com/zmoog/classeviva-client to access the grades of my older kid during the week, so I can access the latest one with a very fre keystrokes.
+I build this small workflow using my own library https://github.com/zmoog/classeviva-client to access my older kid's grades with very few keystrokes (four keys: `<alt> <space> <cv> <v>` to summon Alfred and type `cv` the keyword for this shortcut).
 
 ![Alfred Workflow ClasseViva](../../static/images/alfred-classeviva.gif)
 
-The alternative was open a new browser tab/window, log into the website, select the grades.
+The alternative was to open a new browser tab/window, log into the website, select the grades.
 
 
  ## Example: Arduino CLI
 
-Sometime I need to peek the details of one of the Arduino boards connected to my laptop, list the installed core or search through the libraties using the Arduino CLI.
+Sometimes I need to peek at the details of one of the Arduino boards connected to my laptop, or list the installed core or search through the installed libraries using the Arduino CLI.
 
-I always have a terminal open on my desktop (with zsh, reverse search ready and all the nine yards), but a well prepared launcher can be quicker.
+I always have a terminal open on my Mac running `zsh,` and I use reverse search a lot, but a well-prepared launcher app can be even quicker.
 
-Launcher are great when you have a limited set of recurring actions you repeat every day (or maybe even every hour or fre minutes) you can optimize for.
+Launchers are great when you have a limited set of recurring actions you repeat every day (or maybe even every hour or few minutes) you can optimize for.
 
 An Alfred workflow is perfect for this kind of stuff.
 
@@ -113,12 +113,16 @@ An Alfred workflow is perfect for this kind of stuff.
 
 ### Source code
 
-You can browse the final project visiting https://github.com/zmoog/alfred-arduino-cli/.
+You can browse the final project by visiting https://github.com/zmoog/alfred-arduino-cli/.
 
 
-### High level overview
+### Are you on Linux?
 
-When you type the keyword on Afred then it:
+You can give https://github.com/umbynos/arduino_cli a try; it's built by my dear teammate and friend [@umbynos](https://github.com/umbynos/).
+
+### High-level overview
+
+When you type the keyword on Alfred then it:
 
 1. triggers the workflow
 2. the workflow executes the `arduino-cli` setting the output to JSON format
@@ -198,7 +202,7 @@ Here I am using [Invoke](http://www.pyinvoke.org/installing.html) to run the bin
 
 To keep the workflow as simple as possible I used the `--format json` available for most of the CLI commands. The result is returned as a nice JSON that can be easily parsed using the builtin `json` module.
 
-```python
+```Python
 def run_command(cmd):
     from invoke import run
     
@@ -262,3 +266,4 @@ Start small with something you need to "fix", like removing the friction of open
 
 ## Music
 This post has been written listening to [Black Market](https://open.spotify.com/album/4COZn5okauxP5luXkwEPLd?si=6aSBpgopSNCpm8w9OgGy6w) by [Weather Report](https://open.spotify.com/artist/162DCkd8aDKwvjBb74Gu8b?si=6Ybw6IUlQbuLfxD1M6d2Tw).
+  
