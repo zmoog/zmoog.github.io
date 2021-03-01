@@ -1,6 +1,6 @@
 ---
 title: "On Writing Alfred Workflows in Python"
-date: 2021-02-21T09:03:23+01:00
+date: 2021-03-01T07:54:00+01:00
 draft: true
 ---
 
