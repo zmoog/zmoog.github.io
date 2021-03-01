@@ -1,5 +1,5 @@
 ---
-title: "Alfred Workflow"
+title: "On Writing Alfred Workflows in Python"
 date: 2021-02-21T09:03:23+01:00
 draft: true
 ---
@@ -22,14 +22,14 @@ For example, when I type:
  * `;pr` with my favourite [template for pull-requests](https://gist.github.com/zmoog/40e989c7e2a4450a4ee5d8b6d2833f04)
  * `;shrug` with `¯\_(ツ)_/¯`
 
-![TextExpander Stats](../../static/images/textexpander-example.gif)
+![TextExpander Stats](images/textexpander-example.gif)
 
 
 #### The Raw Numbers
 
 According to TextExpander, in the last 50 days, I saved **47 minutes** just expanding abbreviations into the text instead of typing it on my keyboard.
 
-![TextExpander Stats](../../static/images/textexpander-stats.png)
+![TextExpander Stats](images/textexpander-stats.png)
 
 It might or might not feel like a big deal, but actually, I saved time AND removed friction from my workflow. And every time a expand a multiple words text or a template, I feel *really* good.
 
@@ -54,7 +54,7 @@ Alfred is my favorite.
 
 You can use Alfred to launch applications, perform simple calculations, lookup locations using map services, search products on Amazon, or anything else on Google.
 
-![Alfred example](../../static/images/alfred-example.gif)
+![Alfred example](images/alfred-example.gif)
 
 The already mentioned features can be a convenient and useful tool, but the most powerful and impressive stuff comes out of the Powerpack if you have some development skills.
 
@@ -79,7 +79,7 @@ Clipboard history is a killer feature to me, but Workflows are a real game-chang
 
 [Workflows](https://www.alfredapp.com/workflows/) are an extension mechanism that allows third-party developers to write their own additional feature that can be plugged in Alfred, triggered, and executed from Alfred typing a short keyword.
 
-![Alfred Workflow Panel](../../static/images/alfred-workflow-panel.png)
+![Alfred Workflow Panel](images/alfred-workflow-panel.png)
 
 Workflows can be written in virtually any language that can write XML, the default markup used to communicate between Alfred and the workflow (more on this later).
 
@@ -99,7 +99,7 @@ Over the last few months, I created multiple workflows to scratch an itch and so
 
 I build this small workflow using my own library https://github.com/zmoog/classeviva-client to access my older kid's grades with very few keystrokes (four keys: `<alt> <space> <cv> <v>` to summon Alfred and type `cv` the keyword for this shortcut).
 
-![Alfred Workflow ClasseViva](../../static/images/alfred-classeviva.gif)
+![Alfred Workflow ClasseViva](images/alfred-classeviva.gif)
 
 The alternative was to open a new browser tab/window, log into the website, select the grades.
 
@@ -114,7 +114,7 @@ Launchers are great when you have a limited set of recurring actions you repeat 
 
 An Alfred workflow is perfect for this kind of stuff.
 
-![Alfred Workflow Arduino CLI](../../static/images/alfred-arduino-cli.gif)
+![Alfred Workflow Arduino CLI](images/alfred-arduino-cli.gif)
 
 
 ### Source code
@@ -137,7 +137,7 @@ When you type the keyword on Alfred, then it:
 3. the `arduino-cli` runs the command and writes the result to the standard output using the JSON format.
 4. When the `arduino-cli` finishes, the workflow parses the JSON output and builds the response to return to the Alfred core.
 
-![Alfred Workflow Arduino CLI](../../static/images/alfred-arduino-cli.png)
+![Alfred Workflow Arduino CLI](images/alfred-arduino-cli.png)
 
 
 Check [arduino-cli.py](https://github.com/zmoog/alfred-arduino-cli/blob/main/arduino-cli.py) out to see how the Arduino CLI workflow has been implemented.
@@ -154,7 +154,7 @@ This short and focused tutorial explains how to build a simple Pinboard workflow
 
 I used a script filter to trigger the workflow by typing `cli` on Alfred.
 
-![Alfred Workflow Arduino CLI Panel](../../static/images/alfred-arduini-cli-panel.png)
+![Alfred Workflow Arduino CLI Panel](images/alfred-arduini-cli-panel.png)
 
 When I select one of the actions available, Alfred will run the Python script `python arduino-cli.py core list {query}` behind the scene, replacing `{query}` with the text I typed and then waiting for the script to execute and return the response XML.
 
