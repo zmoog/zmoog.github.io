@@ -5,11 +5,12 @@ draft: true
 ---
 
 
- ## Automate all the things
- 
+## Automate all the things
+
 ### A story about friction and wasted time
 
 There are a lot of big and small tasks we perform on our computers every single day. Even when they are simple, they sometimes carry a tiny amount of friction and always require time to complete. If you just do them once, there is no big deal. But, often, we do them over and over again, day in and day out, so their cumulative cost adds up into a not trivial amount.
+
 
 ### 🤨 Hey, I'm pretty skeptical, please give me something more tangible
 
@@ -26,11 +27,12 @@ For example, when I type:
 
 #### The Raw Numbers
 
-According to TextExpander, in the last 40 days, I saved **47 minutes** just expanding abbreviations into the text instead of typing it on my keyboard.
+According to TextExpander, in the last 50 days, I saved **47 minutes** just expanding abbreviations into the text instead of typing it on my keyboard.
 
 ![TextExpander Stats](../../static/images/textexpander-stats.png)
 
 It might or might not feel like a big deal, but actually, I saved time AND removed friction from my workflow. And every time a expand a multiple words text or a template, I feel *really* good.
+
 
 #### But TextExpander is not for developers!
 
@@ -38,7 +40,7 @@ I started with TextExpander because it is kind enough to give us the numbers, bu
 
 
  ## What is Alfred?
- 
+
  ### One application to launch them all
 
 [Alfred](https://www.alfredapp.com) is a desktop [application launcher](https://en.wikipedia.org/wiki/Comparison_of_desktop_application_launchers) for macOS.
@@ -46,6 +48,7 @@ I started with TextExpander because it is kind enough to give us the numbers, bu
 It's not the only one: there are a good number of launchers for macOS: [LaunchBar](https://www.google.it/search?q=launchbar), the venerable [Quicksilver](https://qsapp.com) and the built-in [Spotlight](https://en.wikipedia.org/wiki/Spotlight_(software)) from Apple. 
 
 Alfred is my favorite.
+
 
 ### Features
 
@@ -56,6 +59,7 @@ You can use Alfred to launch applications, perform simple calculations, lookup l
 The already mentioned features can be a convenient and useful tool, but the most powerful and impressive stuff comes out of the Powerpack if you have some development skills.
 
 If you're willing to [pay £29.00](https://www.alfredapp.com/shop/), you'll get the real value out of it.
+
 
 ### 💰⚡️ The Powerpack
 
@@ -88,6 +92,7 @@ There is probably one framework to build Alfred workflows for every popular lang
 
 Over the last few months, I created multiple workflows to scratch an itch and solve practical problems, and it's been delightful.
 
+
  ## Example: ClasseViva
 
 [ClasseViva](https://web.spaggiari.eu/sdf/app/default/cvv.php?vista=scheda_prodotto) is the electronic class register used by a lot of schools here in Italy. 
@@ -111,6 +116,7 @@ An Alfred workflow is perfect for this kind of stuff.
 
 ![Alfred Workflow Arduino CLI](../../static/images/alfred-arduino-cli.gif)
 
+
 ### Source code
 
 You can browse the final project by visiting https://github.com/zmoog/alfred-arduino-cli/.
@@ -118,42 +124,44 @@ You can browse the final project by visiting https://github.com/zmoog/alfred-ard
 
 ### Are you on Linux?
 
-You can give https://github.com/umbynos/arduino_cli a try; it's built by my dear teammate and friend [@umbynos](https://github.com/umbynos/).
+If you're not on Mac, give https://github.com/umbynos/arduino_cli a try; it's a [Python plugin](https://github.com/albertlauncher/plugins/blob/master/python/README.md) built by my dear teammate and friend [@umbynos](https://github.com/umbynos/) for the [Albert](https://albertlauncher.github.io) launcher.
+
 
 ### High-level overview
+Let's get a general idea about how workflows work in Alfred, using this as an example.
 
-When you type the keyword on Alfred then it:
+When you type the keyword on Alfred, then it:
 
-1. triggers the workflow
-2. the workflow executes the `arduino-cli` setting the output to JSON format
-3. when the `arduino-cli` is finished, the workflow parses the output and buid the response and return it to the Alfred core.
+1. Alfred triggers the workflow.
+2. The workflow executes the `arduino-cli` file with the input prepared by the workflow.
+3. the `arduino-cli` runs the command and writes the result to the standard output using the JSON format.
+4. When the `arduino-cli` finishes, the workflow parses the JSON output and builds the response to return to the Alfred core.
 
 ![Alfred Workflow Arduino CLI](../../static/images/alfred-arduino-cli.png)
 
 
-The Arduino CLI workflow runs the `arduino-cli.py` file using the Python interpreter with a defined set of commands.
-
-https://www.deanishe.net/alfred-workflow/tutorial_1.html
+Check [arduino-cli.py](https://github.com/zmoog/alfred-arduino-cli/blob/main/arduino-cli.py) out to see how the Arduino CLI workflow has been implemented.
 
 
 ### How to Create a new Workflow
 
-If you want to start creating your own workflows in Python using Alfred-Workflows, then your best option is to start with the great  [Tutorial Part 1: Creating a Basic Pinboard Workflow](https://www.deanishe.net/alfred-workflow/tutorial_1.html).
+If you want to start creating your own workflows in Python using Alfred-Workflows, your best option is to start with the great  [Tutorial Part 1: Creating a Basic Pinboard Workflow](https://www.deanishe.net/alfred-workflow/tutorial_1.html).
 
-This short and focused tutorial explan how to build a simple Pinboard workflow from scratch.
+This short and focused tutorial explains how to build a simple Pinboard workflow from scratch.
 
 
 ### 1. Trigger the Workflow
 
-I used a script filter to trigger the workflow typing `cli` on Alfred.
+I used a script filter to trigger the workflow by typing `cli` on Alfred.
 
 ![Alfred Workflow Arduino CLI Panel](../../static/images/alfred-arduini-cli-panel.png)
 
-When I select one of the actions available, Alfred will run the Python script `python arduino-cli.py core list {query}` for me behind the scene, replacing `{query}` with the text I typed, and the waiting the script to execute and return the response XML.
+When I select one of the actions available, Alfred will run the Python script `python arduino-cli.py core list {query}` behind the scene, replacing `{query}` with the text I typed and then waiting for the script to execute and return the response XML.
+
 
 ### 2. The Workflow Executes
 
-The script is a regular Python script you can also run on the terminal to testing and troubleshooting.
+The script is a regular Python script you can also run on the terminal for testing and troubleshooting.
 
 ```python
 def main(wf):
@@ -182,25 +190,27 @@ if __name__ == u"__main__":
 
 ```
 
-The Alfred-Workflow library does the heavy duty of offering a nice API do produce the XML Alfred requires to work with workflows, and a lot of useful goodies, for example.
+The Alfred-Workflow library does the heavy-duty of offering a nice API to indirectly produce the XML Alfred requires to work with workflows, plus many useful goodies.
 
  * Fuzzy, Alfred-like search/filtering with diacritic folding
  * Simple, persistent settings
  * Simple, auto-expiring data caching
- * Keychain support for secure storage (and syncing) of passwords, API keys etc.
- * Lightweight web API with requests-like interface
+ * Keychain support for secure storage (and syncing) of passwords, API keys, etc.
+ * Lightweight web API with a requests-like interface
 
-and more, check out the [full list of features](https://www.deanishe.net/alfred-workflow/index.html#features).
+And more, check out the [full list of features](https://www.deanishe.net/alfred-workflow/index.html#features).
 
-### 3. Run the actual arduin-cli binary and parse the output
+
+### 3. Run the actual arduin-cli binary
 
 The real work is performed by the [Arduino CLI](https://github.com/arduino/arduino-cli).
 
-Here I am using [Invoke](http://www.pyinvoke.org/installing.html) to run the binary, collect and parse the JSON returned in the standard output.
+The workflow uses [Invoke](http://www.pyinvoke.org/installing.html) to run the CLI binary, collect and parse the JSON returned in the standard output.
+
 
 #### Invoke
 
-To keep the workflow as simple as possible I used the `--format json` available for most of the CLI commands. The result is returned as a nice JSON that can be easily parsed using the builtin `json` module.
+To keep the workflow as simple as possible, I used the `--format json` option available for most CLI commands. The result is returned as a nice JSON that can be easily parsed using the built-in `json` module.
 
 ```Python
 def run_command(cmd):
@@ -215,9 +225,10 @@ def run_command(cmd):
     return json.loads(result.stdout)
 ```
 
-#### Build a response for Alfred
 
-This the JSON response parse into a Python dictionary, all I need to to is build the items for Alfred.
+### 4. Build a response for Alfred
+
+Finally, the workflow uses the CLI data to build the Alfred items that drive its UI.
 
 ```python
     def handle_version_none(self):
@@ -257,13 +268,20 @@ And finally, when the Python script is done, this is what Alfred get back:
 ```
 
 
-
  ## Conclusion
 
-[Is it worth the time](https://xkcd.com/1205/)? Yep! 
+If you spend hours a day sitting in front of a computer for work, it's hard to imagine you don't have a small activity you have to repeat over and over that could benefit some automation.
 
-Start small with something you need to "fix", like removing the friction of opening a site 1-3 times a day to check and information, generate am UUID on the fly or a password with just three keystrokes.
+[Is it worth the time](https://xkcd.com/1205/)?
+
+The next time you feel that impalpable sense of discomfort for having to repeat a tedious task one more time, well, think about if you can automate it using your language of choice. Build it and then make it super convenient to run from the slick Alfred UI, turning it into an Alfred Workflow.
+
+Start small with something you need to "fix", like opening the same site 1-3 times a day to check some information you need or generate UUIDs on the fly, or a password, all with less than a handful of keystrokes.
+
+And have fun along the way.
+
 
 ## Music
+
 This post has been written listening to [Black Market](https://open.spotify.com/album/4COZn5okauxP5luXkwEPLd?si=6aSBpgopSNCpm8w9OgGy6w) by [Weather Report](https://open.spotify.com/artist/162DCkd8aDKwvjBb74Gu8b?si=6Ybw6IUlQbuLfxD1M6d2Tw).
   
