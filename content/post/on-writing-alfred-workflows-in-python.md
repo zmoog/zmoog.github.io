@@ -154,7 +154,7 @@ This short and focused tutorial explains how to build a simple Pinboard workflow
 
 I used a script filter to trigger the workflow by typing `cli` on Alfred.
 
-![Alfred Workflow Arduino CLI Panel](images/alfred-arduini-cli-panel.png)
+![Alfred Workflow Arduino CLI Panel](/images/alfred-arduino-cli-panel.png)
 
 When I select one of the actions available, Alfred will run the Python script `python arduino-cli.py core list {query}` behind the scene, replacing `{query}` with the text I typed and then waiting for the script to execute and return the response XML.
 
