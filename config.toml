@@ -2,6 +2,7 @@ baseURL = "https://zmoog.dev/"
 languageCode = "en-us"
 title = "zmoog"
 theme = "lanyon-hugo"
+googleAnalytics = "UA-189846455-1"
 
 [Params]
   title = "zmoog"
