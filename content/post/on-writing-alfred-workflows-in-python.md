@@ -126,6 +126,8 @@ You can browse the final project by visiting https://github.com/zmoog/alfred-ard
 
 If you're not on Mac, give https://github.com/umbynos/arduino_cli a try; it's a [Python plugin](https://github.com/albertlauncher/plugins/blob/master/python/README.md) built by my dear teammate and friend [@umbynos](https://github.com/umbynos/) for the [Albert](https://albertlauncher.github.io) launcher.
 
+It's still in progress but very promising, and [@umbynos](https://github.com/umbynos/) is accepting contributions!
+
 
 ### High-level overview
 Let's get a general idea about how workflows work in Alfred, using this as an example.
