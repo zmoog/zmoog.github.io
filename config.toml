@@ -1,10 +1,10 @@
 baseURL = "https://zmoog.github.io/"
 languageCode = "en-us"
-title = "zmoog"
+title = "Practical Nerdery"
 theme = "lanyon-hugo"
 googleAnalytics = "UA-189846455-1"
 
 [Params]
-  title = "zmoog"
-  tagline = "I procrastinate things"
+  title = "Practical Nerdery"
+  tagline = "Little projects and uncomplicated write-ups"
   author = "Maurizio Branca"
