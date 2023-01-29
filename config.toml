@@ -1,4 +1,4 @@
-baseURL = "https://zmoog.dev/"
+baseURL = "https://zmoog.github.io/"
 languageCode = "en-us"
 title = "zmoog"
 theme = "lanyon-hugo"
