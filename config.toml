@@ -2,7 +2,7 @@ baseURL = "https://zmoog.github.io/"
 languageCode = "en-us"
 title = "Practical Nerdery"
 theme = "lanyon-hugo"
-googleAnalytics = "UA-189846455-1"
+googleAnalytics = "G-XGGJ61SVMK"
 
 [Params]
   title = "Practical Nerdery"
