@@ -1,12 +1,12 @@
 ---
 title: "About"
-date: 2021-02-05T01:08:38+01:00
+date: 2023-03-21T12:58:38+01:00
 sidebar: true
 weight: 1
 ---
 
 
-Hello. My name is [Maurizio](https://twitter.com/zmoog). I live in Verolengo, a small town near Turin, Italy.
+Hello. My name is Maurizio. I live in Verolengo, a small town near Turin, Italy.
 
 I am a software developer for a living, and wanna be technology writer.
 
@@ -16,7 +16,7 @@ I used to write Java code, but these days I’m mostly into Go and Python.
 
 I love AWS and serverless technologies! These are the best tools to build little fun things like (serverless) bots that scrape data from websites and post on Telegram, Slack or Twitter.
 
-For example, every morning I receive on Slack:
+For example, every morning I receive on Telegram:
 
 - the latest deals from Apple’s refurbished products
 - this week’s grades of my two kids
@@ -37,10 +37,9 @@ I'm also a big time tracking nerd (I track all of my time since 2016) using the 
 Some facts about the setup of this website include:
 
 - Built for [Hugo](https://gohugo.io).
-- Hosted on [Amazon CloudFront](https://aws.amazon.com/cloudfront/).
-- Written with [iA Writer](https://ia.net/writer), [Drafts](https://getdrafts.com) or [VS Code](https://code.visualstudio.com), depending on the platform and the mood I am in.
+- Hosted on [GitHub Pages](https://pages.github.com/).
 - Designed and developed while listening to [Bicep](https://open.spotify.com/artist/73A3bLnfnz5BoQjb4gNCga?si=Io-HeoQNRle25b7IF-VqsA).
 
 ### Contacts
 
-These days you can find me as @zmoog on [Mastodon](https://mastodon.online/@zmoog) and [Twitter](https://twitter.com/zmoog).
+These days you can find me as @zmoog on [Mastodon](https://mastodon.online/@zmoog) or [Twitter](https://twitter.com/zmoog).
