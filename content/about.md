@@ -1,45 +1,27 @@
 ---
 title: "About"
-date: 2023-03-21T12:58:38+01:00
+date: 2023-09-13T09:41:00+01:00
 sidebar: true
 weight: 1
 ---
 
 
-Hello. My name is Maurizio. I live in Verolengo, a small town near Turin, Italy.
+Hello. My name is Maurizio Branca, and yes, this is an AI-generated image from some genuine picture in my photo library. 
 
-I am a software developer for a living, and wanna be technology writer.
+I live in Verolengo, a small town near Turin, Italy.
 
-### Technology
+I am a software developer for a living, and I want to be a technology writer. I like Linux, Python, Go, coffee, and Wes Anderson movies. I love video games but buy far more than I play.
 
-I used to write Java code, but these days I’m mostly into Go and Python.
+![Me](/images/me.jpg)
 
-I love AWS and serverless technologies! These are the best tools to build little fun things like (serverless) bots that scrape data from websites and post on Telegram, Slack or Twitter.
+## Projects
 
-For example, every morning I receive on Telegram:
+### Practical Nerdery (this website)
 
-- the latest deals from Apple’s refurbished products
-- this week’s grades of my two kids
-- the daily PDF version of the newspaper my family is subscribe to
+I started blogging multiple times but never wrote more than a few posts before letting each attempt die slowly.
 
-### Other Fine Nerderies
+I will try something smaller this time, publishing TIL-style content on what I'm learning and working on.
 
-#### Habits
+## Contacts
 
-I'm a believer in the great power of habits. They can shape your present and future selves. [Atomic Habits](https://www.audible.com/pd/Atomic-Habits-Audiobook/1524779261) and [Better Than Before](https://www.audible.com/pd/Better-Than-Before-Audiobook/B00R8KR28I) are great starting points.
-
-#### Time Tracking
-
-I'm also a big time tracking nerd (I track all of my time since 2016) using the [Toggl](https://toggl.com) service and a mix of tools on my desktop ([alfred-toggl](https://github.com/jason0x43/alfred-toggl)) and mobile platform ([Timery](https://timeryapp.com)).
-
-### The Setup
-
-Some facts about the setup of this website include:
-
-- Built for [Hugo](https://gohugo.io).
-- Hosted on [GitHub Pages](https://pages.github.com/).
-- Designed and developed while listening to [Bicep](https://open.spotify.com/artist/73A3bLnfnz5BoQjb4gNCga?si=Io-HeoQNRle25b7IF-VqsA).
-
-### Contacts
-
-These days you can find me as @zmoog on [Mastodon](https://mastodon.online/@zmoog) or [Twitter](https://twitter.com/zmoog).
+These days you can find me as @zmoog on [Mastodon](https://mastodon.online/@zmoog), less often on [Twitter](https://twitter.com/zmoog) since it has become a sad place. I sometimes post pictures of things that capture my attention on [Instagram](https://instagram.com/zmoog), but don't hold your breath for the next ones.
