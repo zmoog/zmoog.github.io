@@ -1,7 +1,15 @@
 ---
+author: "Maurizio Branca"
 title: "Refurbot: a serverless bot that tweets"
 date: 2021-02-14T08:42:11+01:00
 draft: false
+tags:
+  markdown
+  css
+  html
+categories:
+  themes
+  syntax
 ---
 
 ## The Serverless Opportunity
@@ -30,7 +38,7 @@ Every morning at 9 am (CET), Refurbot will wake up and have breakfast. It will t
 
 Refurbot is a simple serverless application written in Python. It has been designed using the [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) principles, even if such a simple project should not really deserve this special attention.
 
-![Refurbot Architecture](/images/refurbot-architecture-high-level.png)
+![Refurbot Architecture](/images/refurbot-architecture-high-level-2.png)
 
 Sometimes, we do such things ["just because we can."](https://www.youtube.com/watch?v=WlGIxof7w5I) Still, in this case, I think it's useful to test or practice using simple context and then progressively move up to something more complex No, I'm lying, I just read the two books [Architecture Patterns with Python](https://www.cosmicpython.com/book/preface.html) and [Clean Architectures in Python](http://www.pycabook.com) and I want to practice!)
 
@@ -39,7 +47,7 @@ Sometimes, we do such things ["just because we can."](https://www.youtube.com/wa
 
 A more detailed overview of the Refurbot architecture.
 
-![Refurbot Architecture](/images/refurbot-architecture-detail.png)
+![Refurbot Architecture](/images/refurbot-architecture-detail-2.png)
 
 ### Step 1 — Schedule it
 

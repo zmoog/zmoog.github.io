@@ -139,7 +139,7 @@ When you type the keyword on Alfred, then it:
 3. the `arduino-cli` runs the command and writes the result to the standard output using the JSON format.
 4. When the `arduino-cli` finishes, the workflow parses the JSON output and builds the response to return to the Alfred core.
 
-![Alfred Workflow Arduino CLI](/images/alfred-arduino-cli.png)
+![Alfred Workflow Arduino CLI](/images/alfred-arduino-cli-2.png)
 
 
 Check [arduino-cli.py](https://github.com/zmoog/alfred-arduino-cli/blob/main/arduino-cli.py) out to see how the Arduino CLI workflow has been implemented.

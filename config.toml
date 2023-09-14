@@ -1,10 +1,25 @@
 baseURL = "https://zmoog.github.io/"
 languageCode = "en-us"
-title = "Practical Nerdery"
-theme = "lanyon-hugo"
+theme = "holy"
 googleAnalytics = "G-XGGJ61SVMK"
 
-[Params]
-  title = "Practical Nerdery"
+[params]
+  HeaderTitle = "Practical Nerdery"
   tagline = "Little projects and uncomplicated write-ups"
   author = "Maurizio Branca"
+  mainSections = ["posts"]
+  copyright = "© zmoog"
+
+[menu]
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 90
