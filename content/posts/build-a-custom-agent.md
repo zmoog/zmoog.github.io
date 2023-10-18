@@ -4,7 +4,17 @@ date: 2023-10-18T07:54:00+01:00
 draft: false
 ---
 
-I made a change to Filebeat, and now I want to test this change running it with the Agent on my local stack.
+## Why?
+
+If you make a change to Filebeat, it's simple to test it running Filebeat standalone. It's not a big deal.
+
+However, sometimes you need to test the change by running Filebeat in the Elastic Agent as one of its components. 
+
+This post explains how to make a change to Filebeat, build it and run it as parte of the Agent.
+
+It's just a few steps away!
+
+## A small change to ship
 
 For this research, I'll make this trivial change to Filebeat:
 
@@ -30,8 +40,9 @@ This research is based on the great gist from Lee Hinman [^1] and the standard E
 [^1]: https://gist.github.com/leehinman/4b1b467b7102b30c1c8a5c7139fe549c#orgb105d81
 [^2]: https://github.com/elastic/elastic-agent#docker
 
+## Building
 
-## Create the temporary folders
+### Temporary folders
 
 We need a couple of folders to store the Filebeat distribution files we'll create during this process:
 
@@ -40,7 +51,7 @@ mkdir -p ~/tmp/artifacts
 mkdir -p ~/tmp/agent_drop_path
 ```
 
-## Build your custom Filebeat
+### Build Filebeat
 
 In this phase, we checkout the `main` branch from Beats and cross compiled the Linux version:
 
@@ -58,15 +69,15 @@ DEV=true SNAPSHOT=true PLATFORMS="linux/amd64" PACKAGES=tar.gz mage -v clean pac
 cp build/distributions/filebeat-8.9.0-SNAPSHOT-linux-x86_64.tar.gz* ~/tmp/artifacts
 ```
 
-## Build or download Metricbeat and the other beats
+### Build (or download) Metricbeat and the other beats
 
 Agent also requires Metricbeat to run. You can build Metricbeat using the same process or download it.
 
 If you want download it, you can search for the right version at https://artifacts-staging.elastic.co/dra-info/index.html
 
-## Build the Agent
+### Build Elastic Agent
 
-```
+```shell
 cd ~/src/elastic-agent
 
 git checkout main
@@ -97,7 +108,9 @@ docker.elastic.co/kibana/kibana                          8.9.0-SNAPSHOT         
 
 The custom images we just built start with `docker.elastic.co/beats/elastic-agent*`
 
-## Start the local stack
+## Running
+
+### Start your local stack
 
 We can now bootstrap the local stack:
 
@@ -113,7 +126,7 @@ Note: the local stack will NOT use our custom docker image. Instead, it will use
 docker.elastic.co/elastic-agent/elastic-agent-complete
 ```
 
-### How I tried ELASTIC_AGENT_IMAGE_REF_OVERRIDE and failed
+#### How I tried ELASTIC_AGENT_IMAGE_REF_OVERRIDE and failed
 
 I tried to suggest `elastic-package` using the custom Agent image using the environment variable named `ELASTIC_AGENT_IMAGE_REF_OVERRIDE` but failed. 
 
@@ -121,9 +134,9 @@ By exporting the custom image, `elastic-package`  will use the custom image. How
 
 I abandoned this option and opted to enroll an Agent using the custom image.
 
-## Enroll your custom Agent
+### Enroll your custom Agent
 
-### Agent Policy
+#### Agent Policy
 
 I created a brand new agent policy and installed the Azure Logs integration.
 
@@ -133,7 +146,7 @@ Export the enrollment token for this policy:
 export ENROLLMENT_TOKEN="..."
 ```
 
-### Enroll
+#### Enroll
 
 We can finally run our custom Agent creating enrolling it the Fleet server running on the local stack:
 
@@ -151,7 +164,11 @@ The Agent is running the custom Filebeat build.
 
 ![CleanShot 2023-05-10 at 11 54 59@2x](https://github.com/zmoog/public-notes/assets/25941/9e1ba656-d926-4afa-a098-ad215d0dc94c)
 
-## Publish the Docker image on Docker Hub
+## Publishing
+
+Instead of just running it on your local stack, you can also share the custom agent image with other user to use or test.
+
+### Publish the Docker image on Docker Hub
 
 After you have build the Docker image, here's how to share it with other people using Docker Hub.
 
@@ -160,7 +177,7 @@ $ docker tag docker.elastic.co/beats/elastic-agent:8.9.0-SNAPSHOT zmoog/elastic-
 $ docker push zmoog/elastic-agent:8.9.0-SNAPSHOT
 ```
 
-## Bootstrap your local stack
+### Bootstrap your local stack
 
 We need a stack running on your local machine, and `elastic-package` is a great tool to provision one:
 
@@ -169,7 +186,7 @@ We need a stack running on your local machine, and `elastic-package` is a great 
 elastic-package build && elastic-package stack up -d -v --version 8.9.0-SNAPSHOT
 ```
 
-## Run the custom Agent on the local stack
+### Run the custom Agent on the local stack
 
 Create an agent policy on the local cluster and get an enrolment token:
 
@@ -189,7 +206,7 @@ docker run  --rm \
   -i zmoog/elastic-agent:8.9.0-SNAPSHOT
 ```
 
-## Enable insecure output
+### Enable insecure output
 
 The new Agent is now running using the agent policy bound to the enrollment token used.
 
