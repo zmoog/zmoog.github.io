@@ -196,30 +196,15 @@ docker tag docker.elastic.co/beats/elastic-agent:8.9.0-SNAPSHOT zmoog/elastic-ag
 docker push zmoog/elastic-agent:8.9.0-SNAPSHOT
 ```
 
+## Bonus content
 
-***
-
-
-## Building
-### Build Filebeat
-### Build (or download) Metricbeat and the other beats
-### Build Elastic Agent
-
-## Running
-### Start your local stack
-
-
-### Enroll your custom Agent
-#### Enroll
-## Publishing
-### Publish the Docker image on Docker Hub
 ### Enable insecure output
 
 The new Agent is now running using the agent policy bound to the enrollment token used.
 
-However, if you install an integration, the Agent will not be able to send data to the local stack due to considering the self-signed certificate used by the local stack insecure.
+However, on some edge cases, your Agent may not be able to send data to the local stack due to the self-signed certificate used by the local stack insecure.
 
-We must add a custom output to enable the Agent to send data. In this output, we'll add:
+We can add a custom output to enable the Agent to send data. In this output, we'll add:
 
 ```text
 # Hosts
@@ -231,7 +216,7 @@ ssl.verification_mode: "none"
 
 options to turn off the certificate verification. All traffic will happen on a transient local stack, so we're not putting anything at risk.
 
-Here's how to add the custom output and enable it for the agent policy:
+Here's a short video tutorial with how to add the custom output and enable it for the agent policy:
 
 https://github.com/zmoog/public-notes/assets/25941/cd86f7a2-73e5-4f80-9c23-9db08dc2030a
 
