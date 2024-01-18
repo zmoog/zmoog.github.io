@@ -2,6 +2,9 @@
 title: "On Writing Alfred Workflows in Python"
 date: 2021-03-01T07:54:00+01:00
 draft: false
+showToc: true
+disableShare: true
+ShowPostNavLinks: false
 ---
 
 

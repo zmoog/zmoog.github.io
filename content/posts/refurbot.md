@@ -4,12 +4,13 @@ title: "Refurbot: a serverless bot that tweets"
 date: 2021-02-14T08:42:11+01:00
 draft: false
 tags:
-  markdown
-  css
-  html
-categories:
-  themes
-  syntax
+- python
+cover:
+  image: images/refurbot-architecture-high-level-2.png
+  hiddenInList: false
+showToc: true
+disableShare: true
+ShowPostNavLinks: false  
 ---
 
 ## The Serverless Opportunity

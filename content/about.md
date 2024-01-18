@@ -3,6 +3,9 @@ title: "About"
 date: 2023-09-13T09:41:00+01:00
 sidebar: true
 weight: 1
+showToc: false
+disableShare: true
+ShowPostNavLinks: false
 ---
 
 
