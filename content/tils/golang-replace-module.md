@@ -2,6 +2,13 @@
 title: "TIL: how to replace an external Go dependency with a local copy"
 date: 2021-02-05T14:54:34+01:00
 draft: false
+categories:
+- til
+tags:
+- golang
+showToc: true
+disableShare: true
+ShowPostNavLinks: false
 ---
 
 ## The Problem
@@ -24,7 +31,7 @@ You can temporarily replace the original module with a local copy, changing one 
 
 Here's a minimal example of a small `go.mod`, the file every Go project uses to handle dependencies:
 
-```
+```golang
 module github.com/zmoog/foo
 
 require (
@@ -34,7 +41,7 @@ require (
 
 To replace the module `github.com/zmoog/bar` with a local copy located on your local disk, all you need to do is add a new line with the [replace](https://golang.org/ref/mod#go-mod-file-replace) directive:
 
-```
+```golang
 module github.com/zmoog/foo
 
 replace github.com/zmoog/bar => /Users/zmoog/code/projects/bar
