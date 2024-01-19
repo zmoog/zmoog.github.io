@@ -1,5 +1,5 @@
 ---
-title: "TIL: how to replace an external Go dependency with a local copy"
+title: "How to replace an external Go dependency with a local copy"
 date: 2021-02-05T14:54:34+01:00
 draft: false
 categories:
