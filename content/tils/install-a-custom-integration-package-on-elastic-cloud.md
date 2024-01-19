@@ -15,9 +15,16 @@ I need to install a development version of an integration package into a cluster
 
 ## Build
 
-Build the package using `elastic-package` and copy the .zip file in a safe place:
+Build the package using `elastic-package` and copy the `.zip` file in a safe place:
 
 ```shell
+#
+# If you don't already have it, clone the Elastic Agent
+# integrations repo:
+#
+# git clone git@github.com:elastic/integrations.git
+#
+
 cd packages/kubernetes
 
 elastic-package build
