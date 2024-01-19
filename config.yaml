@@ -17,11 +17,11 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Practical Nerdery
-  description: "ExampleSite description"
-  keywords: [Blog, Portfolio, PaperMod]
+  description: "Little projects and uncomplicated write-ups"
+  keywords: [Blog, Portfolio]
   author: Maurizio Branca
   # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
+  # images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
   defaultTheme: dark # dark, light, auto
   disableThemeToggle: true
