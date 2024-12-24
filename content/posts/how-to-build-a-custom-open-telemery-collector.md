@@ -1,5 +1,5 @@
 ---
-title: "How to build a custom OpenTelemery collector"
+title: "How to build a custom OpenTelemery Collector"
 date: 2024-12-24T08:49:38+01:00
 tags:
 - open-telemetry
