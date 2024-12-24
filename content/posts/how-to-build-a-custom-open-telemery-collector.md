@@ -1,9 +1,9 @@
 ---
 title: "How to build a custom OpenTelemery collector"
-date: 2024-12-16T06:06:38+01:00
+date: 2024-12-24T08:49:38+01:00
 tags:
 - open-telemetry
-draft: true
+draft: false
 showToc: true
 disableShare: true
 ShowPostNavLinks: false
@@ -11,23 +11,23 @@ ShowPostNavLinks: false
 
 OpenTelemery has become a driving force in the observability space, but I only have limited opportuities to explore it during my working life.
 
-Since I want to learn more about OpenTelemetry, I will build a custom OpenTelemetry collector to address the "telemetry needs" in my house hold.
+Since I want to learn more about OpenTelemetry, I will build a custom OpenTelemetry collector to address the "telemetry needs" in my household.
 
 ## About OpenTelemetry
 
 Accordig to [opentelemetry.io](https://opentelemetry.io/), Open Telemetry is:
 
-> [...] a collection of APIs, SDKs, and tools. Use it to instrument, generate, collect, and export telemetry data (metrics, logs, and traces) to help you analyze your software’s performance and behavior.
+> [...] a collection of APIs, SDKs, and tools. Use it to instrument, generate, collect, and export telemetry data (metrics, logs, and traces) to help you analyze your software's performance and behavior.
 
-To me OpenTelemetry — OTel for friends — is a welcome open standardization of everything telemetry, with standard definition for logs, metrics, and traces data model, open protocols, and a set of ready to use tools like the OpenTelemetry collector.
+To me, OpenTelemetry — OTel for friends — is a welcome open standardization of everything telemetry, with a standard definition for logs, metrics, and traces data model, open protocols, and a set of ready-to-use tools like the OpenTelemetry collector.
 
-## Why build an custom Collector?
+## Why build a custom Collector?
 
-These days, everything is connected to the internet and has an API. I recently renovated my house and installed a solar panel system and a floor heating system. Both systems have an API! \o/
+These days, everything is connected to the internet and has an API. I recently renovated my house and installed a solar panel and floor heating system. Both systems have an API! \o/
 
-I want to have a single source of truth for monitoring, analisys, alerting and long term storage — in one word, telemetry for my solar panels and floor heating system.
+I want to have a single source of truth for monitoring, analysis, alerting, and long-term storage — in one word, telemetry for my solar panels and floor heating system.
 
-Unfortunately, the OTel collector doesn't support the APIs of my solar panels and floor heating system. So I need to build a couple of custom receivers and collector.
+Unfortunately, the OTel collector doesn't support the APIs of my solar panels and floor heating system. So, I need to build a couple of custom receivers and a collector.
 
 ## Collector's anatomy
 
@@ -37,22 +37,22 @@ Unfortunately, the OTel collector doesn't support the APIs of my solar panels an
 
 If you want to learn all the things about building a custom OTel Collector, then the https://opentelemetry.io/docs/collector/custom-collector/ is a good starting point.
 
-Otherwise, here's the chronicles of my journey.
+Otherwise, here's the chronicle of my journey.
 
-1. Install the OpenTelemetry Collector Builder (ocb)
+1. Install the OpenTelemetry Collector Builder (OCB)
 1. Write the Builder manifest file
 1. Generate and build the Collector
 1. Testing
 
-## (1) The Collector Builder (ocb)
+## (1) The Collector Builder (OCB)
 
-Building a custom OTel collector is fully supported by the OTel ecosystem. The process is straighforward and well documented. All you need is the OpenTelemetry Collector Builder (ocb).
+Building a custom OTel collector is fully supported by the OTel ecosystem. The process is straightforward and well-documented. All you need is the OpenTelemetry Collector Builder (OCB).
 
 > This program generates a custom OpenTelemetry Collector binary based on a given configuration. — [source](https://github.com/open-telemetry/opentelemetry-collector/tree/main/cmd/builder)
 
-> The OpenTelemetry Community developed a tool called [OpenTelemetry Collector builder](https://github.com/open-telemetry/opentelemetry-collector/tree/main/cmd/builder) (or ocb for short) to assist people in assembling their own distribution, making it easy to build a distribution that includes their custom components along with components that are publicly available.
+> The OpenTelemetry Community developed a tool called [OpenTelemetry Collector builder](https://github.com/open-telemetry/opentelemetry-collector/tree/main/cmd/builder) (or OCB for short) to assist people in assembling their distribution, making it easy to build a distribution that includes their custom components along with publicly available components.
 
-> As part of the process the ocb will generate the Collector’s source code, which you can use to help build and debug your own custom components, so let’s get started.
+> As part of the process, the OCB will generate the Collector's source code, which you can use to help build and debug your custom components. Let's get started.
 
 Download the OCB pre-build binary for your platform (I am using `darwin_arm64` because I am using an Apple Silicon Mac). At the time of writing, the latest version is 0.116.0.
 
@@ -92,7 +92,7 @@ Flags:
       --config string            build configuration file
   -h, --help                     help for ocb
       --ldflags string           ldflags to include in the "go build" command
-      --skip-compilation         Whether builder should only generate go code with no compile of the collector (default false)
+      --skip-compilation         Whether builder should only generate go code with no compile of the Collector (default false)
       --skip-generate            Whether builder should skip generating go code (default false)
       --skip-get-modules         Whether builder should skip updating go.mod and retrieve Go module list (default false)
       --skip-strict-versioning   Whether builder should skip strictly checking the calculated versions following dependency resolution (default true)
@@ -105,12 +105,12 @@ Okay, now we're good to go.
 
 ## (2) The Builder manifest file
 
-OCB uses a manifest file to generate the custom collector. The manifest file is a yaml file that contains the configuration for the collector.
+OCB uses a manifest file to generate the custom collector. The manifest file is a YAML file containing the Collector's configuration.
 
 
-> The builder’s manifest file is a yaml where you pass information about the code generation and compile process combined with the components that you would like to add to your Collector’s distribution.
+> The builder's manifest file is a YAML where you pass information about the code generation and compile process combined with the components that you would like to add to your Collector's distribution.
 
-> The manifest starts with a map named dist which contains tags to help you configure the code generation and compile process. In fact, all the tags for dist are the equivalent of the ocb command line flags.
+> The manifest starts with a map named dist which contains tags to help you configure the code generation and compile process. In fact, all the tags for dist are the equivalent of the OCB command line flags.
 
 We need at least one receiver and one exporter.
 
@@ -160,7 +160,7 @@ $ ./ocb --config builder-config.yaml
 2024-12-24T09:10:09.197+0100	INFO	builder/main.go:129	Compiled	{"binary": "./otelcol-dev/otelcol-dev"}
 ```
 
-The `otelcol-dev` folder contains the generated collector.
+The `otelcol-dev` folder contains the generated Collector.
 
 ```sh
 $ tree
@@ -252,7 +252,7 @@ export ELASTICSEARCH_USERNAME=""
 export ELASTICSEARCH_PASSWORD=""
 ```
 
-Run the collector.
+Run the Collector.
 
 ```shell
 $ go run ./collector/otelcol-dev --config config.yaml
@@ -279,13 +279,13 @@ As new logs land in the event hub, they should be visible in the Elasticsearch i
 
 ## Conclusion
 
-I learned a lot about the OpenTelemetry Collector and how to build a custom collector. This custome collector only includees the required components (receiver, processor, exporter, extension) and it's very compact.
+I learned a lot about the OpenTelemetry Collector and how to build a custom collector. This custome Collector only includees the required components (receiver, processor, exporter, extension) and it's very compact.
 
 But this is just the beginning. In the next step, I will add a receiver for the solar panel system and the floor heating system.
 
 ## Refs
 
-Here are the links I used to build this collector.
+Here are the links I used to build this Collector.
 
 - OpenTelemetry guide to build a custom collector: https://opentelemetry.io/docs/collector/custom-collector/
 - My public notes: https://github.com/zmoog/public-notes/issues/94
