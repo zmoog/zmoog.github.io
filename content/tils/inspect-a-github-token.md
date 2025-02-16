@@ -11,9 +11,10 @@ disableShare: true
 ShowPostNavLinks: false
 ---
 
-Sometimes you stuble upon a GitHub token you don't know from where it's coming, or who it belongs to.
+Sometimes, you stumble upon a GitHub token that you don't know where it's coming from or to whom it belongs.
 
 Here's how to discover the owner:
+
 
 ```sh
 export GITHUB_TOKEN="<your GitHub token goes here>"
