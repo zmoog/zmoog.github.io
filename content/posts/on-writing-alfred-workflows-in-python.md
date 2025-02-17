@@ -14,7 +14,6 @@ ShowPostNavLinks: false
 
 There are a lot of big and small tasks we perform on our computers every single day. Even when they are simple, they sometimes carry a tiny amount of friction and always require time to complete. If you just do them once, there is no big deal. But, often, we do them over and over again, day in and day out, so their cumulative cost adds up into a not trivial amount.
 
-
 ### 🤨 Hey, I'm pretty skeptical, please give me something more tangible
 
 I use an app called [TextExpander](https://textexpander.com/) every day to automatically *expand* abbreviation into snippets of text I often use throughout the day.

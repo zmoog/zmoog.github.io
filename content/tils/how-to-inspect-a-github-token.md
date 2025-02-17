@@ -1,5 +1,5 @@
 ---
-title: "Inspect a GitHub token"
+title: "How to inspect a GitHub token"
 date: 2025-02-16T14:50:34+01:00
 draft: false
 categories:

@@ -17,10 +17,9 @@ The main functionalities are:
 - Central management of agents in Kibana
 - Easy to use integrations
 
-
 ## Why build a custom Elastic Agent?
 
-If you are an integration developer, sooner or later you'll end up needing a custom agent build. 
+If you are an integration developer, sooner or later you'll end up needing a custom agent build.
 
 Maybe you just added a new feature or fixed a bug on Beats and you want to test it with the Agent. Or you want to give a PR from another developer a try.
 
