@@ -12,7 +12,7 @@ disableShare: true
 ShowPostNavLinks: false
 ---
 
-I used Docker to containerize projects like Bender and my custom OTel Collector. However, after glancing at one of the projects my teammates were working on, I decided to take a look at [ko](https://ko.build).
+I used Docker to containerize projects like [Bender](https://github.com/zmoog/go-bender) and my custom [OTel Collector](https://github.com/zmoog/otel-collector-contrib). However, after glancing at one of the projects my teammates were working on, I decided to take a look at [ko](https://ko.build).
 
 Oh my gosh! Ko is such a magnificent tool!
 
