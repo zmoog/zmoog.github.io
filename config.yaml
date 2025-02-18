@@ -1,6 +1,5 @@
 baseURL: "https://zmoog.dev/"
 title: Practical Nerdery
-paginate: 5
 theme: PaperMod
 
 enableRobotsTXT: true
