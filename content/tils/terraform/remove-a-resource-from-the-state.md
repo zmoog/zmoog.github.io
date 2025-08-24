@@ -1,6 +1,6 @@
 ---
 title: "Remove a resource from the Terraform state"
-date: 2025-07-07T17:44:00+00:00
+date: 2025-08-07T17:44:00+00:00
 draft: false
 categories:
 - til
