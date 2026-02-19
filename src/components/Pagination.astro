@@ -1,0 +1,53 @@
+---
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  prevUrl: string;
+  nextUrl: string;
+}
+
+const { currentPage, totalPages, prevUrl, nextUrl } = Astro.props;
+---
+
+{
+  totalPages > 1 && (
+    <nav class="pagination-wrapper" aria-label="Pagination">
+      {currentPage > 1 && (
+        <a href={prevUrl} class="prev-link group">
+          <svg xmlns="http://www.w3.org/2000/svg" class={`prev-svg`}>
+            <path d="M12.707 17.293 8.414 13H18v-2H8.414l4.293-4.293-1.414-1.414L4.586 12l6.707 6.707z" />
+          </svg>
+          <span>Prev</span>
+        </a>
+      )}
+      <span class="current-page">
+        {currentPage} / {totalPages}
+      </span>
+      {currentPage < totalPages && (
+        <a href={nextUrl} class="next-link group">
+          <span>Next</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class={`next-svg`}>
+            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
+          </svg>
+        </a>
+      )}
+    </nav>
+  )
+}
+
+<style>
+  .pagination-wrapper {
+    @apply my-4 mb-8 flex justify-center;
+  }
+  .prev-link,
+  .next-link {
+    @apply mx-14 flex items-center gap-1 hover:opacity-75;
+  }
+  .prev-svg,
+  .next-svg {
+    @apply h-6 w-6 fill-skin-base group-hover:fill-skin-accent;
+  }
+  .current-page {
+    @apply flex items-center font-semibold;
+  }
+</style>

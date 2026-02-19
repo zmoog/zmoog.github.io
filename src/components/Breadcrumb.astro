@@ -1,0 +1,39 @@
+---
+interface Props {
+  activeDir: "posts" | "tils" | "tags" | "about" | "search";
+}
+
+const { activeDir } = Astro.props;
+
+const breadcrumbPath = [
+  ...(activeDir !== undefined ? [{ href: "/", text: "Home" }] : []),
+  ...(activeDir === "posts" ? [{ href: "/posts/", text: "Posts" }] : []),
+  ...(activeDir === "tils" ? [{ href: "/tils/", text: "TILs" }] : []),
+  ...(activeDir === "tags" ? [{ href: "/tags/", text: "Tags" }] : []),
+  ...(activeDir === "about" ? [{ href: "/about/", text: "About" }] : []),
+  ...(activeDir === "search" ? [{ href: "/search/", text: "Search" }] : []),
+];
+---
+
+<nav class="breadcrumb" aria-label="breadcrumb">
+  {
+    breadcrumbPath.map(({ href, text }) => (
+      <span>
+        <a href={href}>{text}</a>
+        <span aria-hidden="true">&gt;</span>
+      </span>
+    ))
+  }
+</nav>
+
+<style>
+  .breadcrumb {
+    @apply mx-auto mt-8 w-full max-w-3xl px-4 opacity-70;
+  }
+  .breadcrumb span {
+    @apply mr-1;
+  }
+  .breadcrumb a {
+    @apply hover:opacity-75;
+  }
+</style>

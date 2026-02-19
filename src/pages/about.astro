@@ -1,0 +1,64 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { SITE } from "@config";
+---
+
+<Layout title={`About | ${SITE.title}`}>
+  <Header activeNav="about" />
+  <main id="main-content">
+    <section id="about">
+      <h1>About</h1>
+
+      <p>
+        Hi there! I'm <strong>Maurizio Branca</strong>, a software engineer
+        from Italy. I'm passionate about programming, video games, bots, and
+        note-taking.
+      </p>
+
+      <p>
+        I work at <a href="https://www.elastic.co/">Elastic</a> as a software
+        engineer, where I spend most of my time working on Elastic Agent and
+        Beats.
+      </p>
+
+      <p>
+        This blog is where I write about the things I build, learn, and find
+        interesting — mostly around software engineering, observability, and
+        automation.
+      </p>
+
+      <h2>Find me online</h2>
+      <ul>
+        <li>
+          <a href="https://github.com/zmoog/">GitHub</a> — code and projects
+        </li>
+        <li>
+          <a href="https://mastodon.online/@zmoog">Mastodon</a> — thoughts and
+          updates
+        </li>
+      </ul>
+
+      <h2>This site</h2>
+      <p>
+        Built with <a href="https://astro.build">Astro</a> and the
+        <a href="https://github.com/satnaing/astro-paper">AstroPaper</a> theme.
+        Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    @apply mx-auto w-full max-w-3xl px-4 pb-12;
+  }
+  #about {
+    @apply prose mx-auto mt-8 max-w-3xl;
+  }
+  h1 {
+    @apply text-2xl font-semibold text-skin-accent;
+  }
+</style>

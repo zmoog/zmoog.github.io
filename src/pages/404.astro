@@ -1,0 +1,38 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import LinkButton from "@components/LinkButton.astro";
+---
+
+<Layout title="404 Not Found">
+  <Header />
+  <main id="main-content">
+    <div class="not-found-wrapper">
+      <h1>404</h1>
+      <p>Page not found.</p>
+      <LinkButton href="/" class="home-link">
+        Go back home
+      </LinkButton>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    @apply mx-auto w-full max-w-3xl px-4 pb-12;
+  }
+  .not-found-wrapper {
+    @apply flex flex-col items-center justify-center py-20 text-center;
+  }
+  h1 {
+    @apply mb-4 text-6xl font-bold text-skin-accent;
+  }
+  p {
+    @apply mb-8 text-xl;
+  }
+  .home-link {
+    @apply rounded border border-skin-accent px-6 py-2 hover:bg-skin-accent hover:text-skin-inverted;
+  }
+</style>

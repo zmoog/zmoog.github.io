@@ -1,0 +1,17 @@
+---
+interface Props {
+  noPadding?: boolean;
+}
+
+const { noPadding = false } = Astro.props;
+---
+
+<div class={noPadding ? "" : "px-4"}>
+  <hr />
+</div>
+
+<style>
+  hr {
+    @apply mx-auto max-w-3xl border-skin-line;
+  }
+</style>

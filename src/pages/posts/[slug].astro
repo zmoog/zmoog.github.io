@@ -1,0 +1,18 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import PostDetails from "@layouts/PostDetails.astro";
+import { slugify } from "@utils";
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("blog");
+  return posts.map(post => ({
+    params: { slug: slugify(post) },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+---
+
+<PostDetails post={post} collection="blog" />

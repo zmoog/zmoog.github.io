@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import SearchBar from "@components/Search";
+import { SITE } from "@config";
+import { slugify, slugifyStr } from "@utils";
+import type { SearchItem } from "@components/Search";
+
+const posts = await getCollection("blog", ({ data }) => !data.draft);
+const tils = await getCollection("tils", ({ data }) => !data.draft);
+
+const searchList: SearchItem[] = [
+  ...posts.map(post => ({
+    title: post.data.title,
+    description: post.data.description || "",
+    data: post.data,
+    slug: slugify(post),
+    collection: "blog" as const,
+  })),
+  ...tils.map(til => ({
+    title: til.data.title,
+    description: til.data.description || "",
+    data: til.data,
+    slug: slugify(til),
+    collection: "tils" as const,
+  })),
+];
+---
+
+<Layout title={`Search | ${SITE.title}`}>
+  <Header activeNav="search" />
+  <main id="main-content">
+    <h1>Search</h1>
+    <SearchBar client:load searchList={searchList} />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    @apply mx-auto w-full max-w-3xl px-4 pb-12;
+  }
+  h1 {
+    @apply text-2xl font-semibold;
+  }
+</style>

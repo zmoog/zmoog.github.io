@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zmoog.dev/sitemap-index.xml

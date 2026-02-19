@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Tag from "@components/Tag.astro";
+import { SITE } from "@config";
+import { slugifyStr } from "@utils";
+
+const posts = await getCollection("blog", ({ data }) => !data.draft);
+const tils = await getCollection("tils", ({ data }) => !data.draft);
+
+const allPosts = [...posts, ...tils];
+
+const tags: string[] = [
+  ...new Set(allPosts.flatMap(post => post.data.tags).map(tag => slugifyStr(tag))),
+].sort();
+---
+
+<Layout title={`Tags | ${SITE.title}`}>
+  <Header activeNav="tags" />
+  <main id="main-content">
+    <h1>Tags</h1>
+    <ul>
+      {tags.map(tag => <Tag tag={tag} size="lg" />)}
+    </ul>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    @apply mx-auto w-full max-w-3xl px-4 pb-12;
+  }
+  h1 {
+    @apply text-2xl font-semibold;
+  }
+  ul {
+    @apply flex list-none flex-wrap pt-8;
+  }
+</style>

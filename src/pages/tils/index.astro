@@ -1,0 +1,57 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Card from "@components/Card.astro";
+import Pagination from "@components/Pagination.astro";
+import { SITE } from "@config";
+import { sortPostsByDate, slugify } from "@utils";
+
+const tils = await getCollection("tils", ({ data }) => !data.draft);
+const sortedTils = sortPostsByDate(tils);
+
+const totalPages = Math.ceil(sortedTils.length / SITE.postPerPage);
+const currentPage = 1;
+const paginatedTils = sortedTils.slice(0, SITE.postPerPage);
+---
+
+<Layout title={`TILs | ${SITE.title}`}>
+  <Header activeNav="tils" />
+  <main id="main-content">
+    <h1>Today I Learned</h1>
+    <p class="description">Short notes on things I learn day to day.</p>
+    <ul>
+      {
+        paginatedTils.map(til => (
+          <Card
+            href={`/tils/${slugify(til)}/`}
+            frontmatter={til.data}
+          />
+        ))
+      }
+    </ul>
+    <Pagination
+      currentPage={currentPage}
+      totalPages={totalPages}
+      prevUrl=""
+      nextUrl={`/tils/page/2/`}
+    />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    @apply mx-auto w-full max-w-3xl px-4 pb-12;
+  }
+  h1 {
+    @apply text-2xl font-semibold;
+  }
+  .description {
+    @apply my-2 italic;
+  }
+  ul {
+    @apply list-none;
+  }
+</style>
